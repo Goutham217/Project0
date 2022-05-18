@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 import dao.AccountDao;
 import dao.AccountDaoDatabaseImpl;
+import exception.ApplicationException;
 import exception.SystemException;
 import model.AccountPojo;
 
@@ -29,14 +30,14 @@ public class AccountServiceImpl implements AccountService {
 
 
 	@Override
-	public AccountPojo addAccount(AccountPojo accountPojo) throws SystemException {
+	public AccountPojo addAccount(AccountPojo accountPojo) throws SystemException, ApplicationException {
 		
 		AccountPojo returnAccountPojo = this.accountDao.addAccount(accountPojo);
 		return returnAccountPojo;
 	}
 
 	@Override
-	public AccountPojo updateAccount(AccountPojo accountPojo) throws SystemException {
+	public AccountPojo updateAccount(AccountPojo accountPojo) throws SystemException, ApplicationException {
 		
 		AccountPojo validateAccountPojo = this.accountDao.updateAccount(accountPojo);
 		return validateAccountPojo;
